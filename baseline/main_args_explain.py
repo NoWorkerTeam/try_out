@@ -69,7 +69,15 @@ if __name__ == '__main__':
 # cd : '특정'폴더로 이동 ex) cd baseline / cd .. : 상위 폴더로 이동
 # cat : 파일 전체 내용 출력 ex) cat main.py
 
+## 명령어 도움말
 # --help ex) nova run --help
+
+## 모델 현황 파악
+# nova ps -a : 세션에 았는 모든 모델 출력
+# nova ps --only-running : 학습 진행중인 모델만 출력
+
+## 생성된 세션 삭제
+# nova rm ex) nova rm junehong2/Tr1Ko/40
 
 ## arg 값 조정방식
 # nova run -d Tr1Ko -a "--dropout=0.4" -a "--num_encoder_layers=5"
