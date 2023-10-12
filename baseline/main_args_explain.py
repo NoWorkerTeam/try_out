@@ -65,6 +65,10 @@ if __name__ == '__main__':
     args.add_argument('--input_reverse', type=bool, default=False) # 입력 시퀀스 반전 여부
 
 ## 명령어 설명
+# ls : 현재 폴더 내 파일 내용 확인 ex) ls
+# cd : '특정'폴더로 이동 ex) cd baseline / cd .. : 상위 폴더로 이동
+# cat : 파일 전체 내용 출력 ex) cat main.py
+
 # --help ex) nova run --help
 
 ## arg 값 조정방식
