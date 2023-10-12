@@ -1,3 +1,17 @@
+"""
+torch - 강력한 GPU 지원 기능을 갖춘 Numpy와 같은 라이브러리
+torch.autograd - Torch에서 모든 차별화된 Tensor 작업을 지원하는 테이프 기반 자동 미분화 라이브러리
+torch.optim	- SGD, RMSProp, LBFGS, Adam 등과 같은 표준 최적화 방법으로 torch.nn과 함께 사용되는 최적화 패키지
+torch.nn - 최고의 유연성을 위해 설계된 자동 그래프와 깊이 통합된 신경 네트워크 라이브러리
+torch.legacy(.nn/optim)	- 이전 버전과의 호환성을 위해 Torch에서 이식된 레거시 코드
+torch.utils	- 편의를 위해 DataLoader, Trainer 및 기타 유틸리티 기능
+torch.multiprocessing - 파이썬 멀티 프로세싱을 지원하지만, 프로세스 전반에 걸쳐 Torch Tensors의 마법같은 메모리 공유 기능을 제공.
+데이터 로딩 및 호그 워트 훈련에 유용
+
+cuda - gpu 병렬처리 라이브러리
+"""
+
+
 ### main.py args 설명
 
 if __name__ == '__main__':

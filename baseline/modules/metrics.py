@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#데이터 또는 모델의 성능을 측정하고 평가하는 데 사용되는 측정 항목 또는 지표를 나타냅니다.
 
 def get_metric(metric_name, vocab):
     if metric_name == 'CER':
@@ -106,6 +107,7 @@ class ErrorRate(object):
         raise NotImplementedError
 
 
+# CharacterErrorRate 클래스는 문자 수준의 오류를 측정하고 
 class CharacterErrorRate(ErrorRate):
     """
     Computes the Character Error Rate, defined as the edit distance between the
@@ -138,7 +140,7 @@ class CharacterErrorRate(ErrorRate):
 
         return dist, length
 
-
+# WordErrorRate 클래스는 단어 수준의 오류를 측정합니다.
 class WordErrorRate(ErrorRate):
     """
     Computes the Word Error Rate, defined as the edit distance between the

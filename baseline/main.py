@@ -25,8 +25,8 @@ from modules.model import build_model
 from modules.vocab import KoreanSpeechVocabulary
 from modules.data import split_dataset, collate_fn
 from modules.utils import Optimizer
-from modules.metrics import get_metric
-from modules.inference import single_infer
+from modules.metrics import get_metric # 평가 지표
+from modules.inference import single_infer # KoreanSpeechVocabulary 써서 추론
 
 
 from torch.utils.data import DataLoader
@@ -51,13 +51,13 @@ def bind_model(model, optimizer=None):
             optimizer.load_state_dict(state['optimizer'])
         print('Model loaded')
 
-    # 추론
+    
     def infer(path, **kwargs):
         return inference(path, model)
 
     nova.bind(save=save, load=load, infer=infer)  # 'nova.bind' function must be called at the end.
 
-
+# 예측
 def inference(path, model, **kwargs):
     model.eval()
 
@@ -72,9 +72,9 @@ def inference(path, model, **kwargs):
     return sorted(results, key=lambda x: x['filename'])
 
 
-
+# 파일이 직접 실행될 때, 코드 블록을 실행하라는 조건 설정.
 if __name__ == '__main__':
-
+    # 옵션 및 인수를 정의하고 구문 분석할 수 있다.
     args = argparse.ArgumentParser()
 
     # DONOTCHANGE
