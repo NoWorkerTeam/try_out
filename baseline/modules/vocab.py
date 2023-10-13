@@ -20,11 +20,11 @@ class KoreanSpeechVocabulary(Vocabulary):
     def __init__(self, vocab_path, output_unit: str = 'character', sp_model_path=None):
         super(KoreanSpeechVocabulary, self).__init__()
 
-        self.vocab_dict, self.id_dict = self.load_vocab(vocab_path, encoding='utf-8')
-        self.sos_id = int(self.vocab_dict['<sos>'])
-        self.eos_id = int(self.vocab_dict['<eos>'])
-        self.pad_id = int(self.vocab_dict['<pad>'])
-        self.blank_id = int(self.vocab_dict['<blank>'])
+        self.vocab_dict, self.id_dict = self.load_vocab(vocab_path, encoding='utf-8') # 사전 로드
+        self.sos_id = int(self.vocab_dict['<sos>']) # 시작
+        self.eos_id = int(self.vocab_dict['<eos>']) # 끝
+        self.pad_id = int(self.vocab_dict['<pad>']) # 패딩
+        self.blank_id = int(self.vocab_dict['<blank>']) #공백?
         self.labels = self.vocab_dict.keys()
 
         self.vocab_path = vocab_path

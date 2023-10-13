@@ -1,3 +1,8 @@
+#여러 활성화 함수와 추출기. 뭘 쓸지를 고민해야 할 듯. 쓸 수 있는게 너무 많아.
+"""
+실험적으로 하기에는 경우의 수가 너무 많다. 방법이 없을까유? 효율적으로 뭔가를 할 수 있을까 어떤 방법을 써야 할까 ...
+"""
+
 from typing import Tuple
 import math
 
@@ -11,7 +16,7 @@ from astropy.modeling import ParameterError
 
 from modules.vocab import Vocabulary
 
-
+# 활성화 함수. 
 class Swish(nn.Module):
     """
     Swish is a smooth, non-monotonic function that consistently matches or outperforms ReLU on deep networks applied
@@ -24,7 +29,7 @@ class Swish(nn.Module):
     def forward(self, inputs: Tensor) -> Tensor:
         return inputs * inputs.sigmoid()
 
-
+# nn.Linear 모듈을 감싸고, Xavier 초기화를 사용하여 가중치를 초기화하고 편향을 0으로 초기화합니다. 
 class Linear(nn.Module):
     """
     Wrapper class of torch.nn.Linear
@@ -33,14 +38,15 @@ class Linear(nn.Module):
     def __init__(self, in_features: int, out_features: int, bias: bool = True) -> None:
         super(Linear, self).__init__()
         self.linear = nn.Linear(in_features, out_features, bias=bias)
+        # 가중치 초기화, bias가 true인 경우 편향은 0으로 초기화
         init.xavier_uniform_(self.linear.weight)
         if bias:
             init.zeros_(self.linear.bias)
-
+    #x를 받아 선형변환 수행하고 결과를 반환
     def forward(self, x: Tensor) -> Tensor:
         return self.linear(x)
 
-
+# 반복 신경망(RNN)과 배치 정규화 및 ReLU 활성화 함수를 사용하여 시퀀스 데이터를 처리하는 모델
 class BNReluRNN(nn.Module):
     """
     Recurrent neural network with batch normalization layer & ReLU activation function.
@@ -172,6 +178,7 @@ class MaskCNN(nn.Module):
         return seq_lengths.int()
 
 
+# convolutional neural network CNN 추출기
 class Conv2dExtractor(nn.Module):
     """
     Provides inteface of convolutional extractor.
