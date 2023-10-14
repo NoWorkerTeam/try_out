@@ -106,8 +106,8 @@ if __name__ == '__main__':
 # 세션명: [유저ID/데이터셋/세션번호] 구조 ex) junehong2/Tr1Ko/40
 # nova logs [세션명] ex) nova logs junehong2/Tr1Ko/40
 
-## 세션 종료 후 모델 목록 및 제출하고자 하는 모델의 checkpoint 번호 확인하기
-# nova model ls [세션명]
+## 모델 목록 및 제출하고자 하는 모델의 checkpoint별 summary 
+# nova model ls [세션명] ex) nova model ls junehong2/Tr1Ko/40
 
 ## 모델 제출 전 제출 코드에 문제가 없는지 점검하기('-t' 옵션)
 # nova submit -t [세션명] [모델_checkpoint_번호]
